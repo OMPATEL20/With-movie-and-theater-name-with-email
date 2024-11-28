@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Ticket</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Cancel Ticket</h2>
+        <p><strong>Theater:</strong> <span th:text="${theater}"></span></p>
+        <p><strong>Movie:</strong> <span th:text="${movie}"></span></p>
+        <p><strong>Showtime:</strong> <span th:text="${showTime}"></span></p>
+        <p><strong>Selected Seats:</strong> <span th:text="${selectedSeats}"></span></p>
+        <form th:action="@{/processCancel}" method="post">
+            <input type="hidden" name="theater" th:value="${theater}">
+            <input type="hidden" name="movie" th:value="${movie}">
+            <input type="hidden" name="showTime" th:value="${showTime}">
+            <input type="hidden" name="selectedSeats" th:value="${selectedSeats}">
+            <button type="submit" class="btn btn-danger">Confirm Cancellation</button>
+        </form>
+    </div>
+</body>
+</html>
